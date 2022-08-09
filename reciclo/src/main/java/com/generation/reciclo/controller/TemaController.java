@@ -1,5 +1,5 @@
 package com.generation.reciclo.controller;
-
+//teste
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
