@@ -23,7 +23,7 @@ import com.generation.reciclo.repository.UsuarioRepository;
 import com.generation.reciclo.service.UsuarioService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 	
