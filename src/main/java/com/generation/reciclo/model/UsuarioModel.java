@@ -38,10 +38,12 @@ public class UsuarioModel {
 	@Size(min= 8, message="Preenchimento de no mínimo 8 caracteres")
 	private String senha;
 	
-	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
+	@Size(max = 500, message = "O link da foto não pode ser maior do que 500 caracteres")
 	private String foto;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private String tipo;
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties ("usuario")
 	private List<PostagemModel> postagem;
 
@@ -91,6 +93,14 @@ public class UsuarioModel {
 
 	public void setPostagem(List<PostagemModel> postagem) {
 		this.postagem = postagem;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }
