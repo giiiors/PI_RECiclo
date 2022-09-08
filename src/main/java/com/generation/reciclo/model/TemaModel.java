@@ -23,7 +23,7 @@ public class TemaModel {
 	//O import dessa anotation está diferente do exercício anterior
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	
 	@NotBlank(message="Preenchimento Obrigatório")
 	@Size(min= 5, max=100, message="Permitido de 05 até 100 caracteres")
@@ -38,10 +38,10 @@ public class TemaModel {
 	private List<PostagemModel> postagem;
 	
 	public Long getId() {
-		return Id;
+		return id;
 	}
 	public void setId(Long id) {
-		Id = id;
+		id = id;
 	}
 	public String getTitulo() {
 		return titulo;
