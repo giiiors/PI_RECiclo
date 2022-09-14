@@ -24,8 +24,8 @@ public class PostagemModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message="Preenchimento Obrigatório")
-	@Size(min= 5, max=100, message="Permitido de 05 até 100 caracteres")
+	/*@NotBlank(message="Preenchimento Obrigatório")*/
+	@Size(max=100, message="Permitido de 05 até 100 caracteres")
 	private String titulo;
 
 	@NotNull(message="Preenchimento Obrigatório")
