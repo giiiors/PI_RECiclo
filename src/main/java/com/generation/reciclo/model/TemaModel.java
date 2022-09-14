@@ -25,7 +25,6 @@ public class TemaModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message="Preenchimento Obrigatório")
 	@Size(min= 5, max=100, message="Permitido de 05 até 100 caracteres")
 	private String titulo;
 	
@@ -36,29 +35,38 @@ public class TemaModel {
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties ("tema")
 	private List<PostagemModel> postagem;
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
-		id = id;
+		this.id = id;
 	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;	
+		this.descricao = descricao;
 	}
+
 	public List<PostagemModel> getPostagem() {
 		return postagem;
 	}
+
 	public void setPostagem(List<PostagemModel> postagem) {
 		this.postagem = postagem;
 	}
+	
+	
 }
