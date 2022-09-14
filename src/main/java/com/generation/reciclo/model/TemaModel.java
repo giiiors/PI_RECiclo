@@ -29,7 +29,7 @@ public class TemaModel {
 	private String titulo;
 	
 	@NotNull(message="Preenchimento Obrigatório")
-	@Size(min= 10, max=500, message="Permitido de 10 até 500 caracteres")
+	@Size(max=500, message="Permitido de 10 até 500 caracteres")
 	private String descricao;
 	
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
