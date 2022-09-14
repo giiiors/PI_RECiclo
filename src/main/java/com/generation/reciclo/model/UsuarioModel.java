@@ -26,7 +26,7 @@ public class UsuarioModel {
 	private Long id;
 	
 	@NotBlank(message="Preenchimento Obrigatório")
-	@Size(min= 5, max=100, message="Permitido de 05 até 100 caracteres")
+	@Size(min= 3, max=100, message="Permitido de 05 até 100 caracteres")
 	private String nome;
 	
 	@Schema(example = "email@email.com.br")

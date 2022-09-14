@@ -17,10 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.reciclo.model.PostagemModel;
 import com.generation.reciclo.repository.PostagemRepository;
+import com.generation.reciclo.repository.TemaRepository;
 
 @RestController
-@CrossOrigin(origins = "*")
-@RequestMapping("/postagem")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/postagens")
 public class PostagemController {
 	
 	@Autowired
