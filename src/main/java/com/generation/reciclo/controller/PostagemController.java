@@ -2,6 +2,8 @@ package com.generation.reciclo.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +22,15 @@ import com.generation.reciclo.repository.PostagemRepository;
 import com.generation.reciclo.repository.TemaRepository;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/postagens")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostagemController {
 	
 	@Autowired
 	private PostagemRepository repository;
+	
+	@Autowired
+	private TemaRepository repositoryTema;
 	
 	@GetMapping
 	public ResponseEntity<List<PostagemModel>> getAll(){
@@ -45,7 +50,7 @@ public class PostagemController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<PostagemModel> post (@RequestBody PostagemModel postagem){
+	public ResponseEntity<PostagemModel> post (@Valid @RequestBody PostagemModel postagem){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
 	
@@ -53,6 +58,8 @@ public class PostagemController {
 	public ResponseEntity<PostagemModel> put (@RequestBody PostagemModel postagem){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
+	
+
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
