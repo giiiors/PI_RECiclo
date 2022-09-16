@@ -29,9 +29,10 @@ public class PostagemModel {
 	private String titulo;
 
 	@NotNull(message="Preenchimento Obrigatório")
-	@Size(min= 10, max=500, message="Permitido de 10 até 500 caracteres")
+	@Size(min= 5, max=500, message="Permitido de 5 até 500 caracteres")
 	private String texto;
 	
+	@NotNull
 	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
 	private String foto;
 	
