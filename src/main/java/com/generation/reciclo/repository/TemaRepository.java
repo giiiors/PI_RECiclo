@@ -10,6 +10,9 @@ import com.generation.reciclo.model.TemaModel;
 
 @Repository
 public interface TemaRepository extends JpaRepository<TemaModel, Long>{
-	List<TemaModel> findAllByDescricaoContainingIgnoreCase(@Param("descricao") String descricao);
+
+	public List<TemaModel>findAllByTituloContainingIgnoreCase(@Param("titulo") String titulo);
 
 }
+
+
