@@ -55,9 +55,21 @@ public class PostagemController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<PostagemModel> put (@RequestBody PostagemModel postagem){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
-	}
+    public ResponseEntity<PostagemModel> putPostagem (@Valid @RequestBody PostagemModel postagem){
+
+
+        if (repository.existsById(postagem.getId())){
+
+            if (repositoryTema.existsById(postagem.getTema().getId()))
+                return ResponseEntity.status(HttpStatus.OK)
+                        .body(repository.save(postagem));
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+        }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 	
 
 	

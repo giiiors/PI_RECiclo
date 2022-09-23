@@ -2,6 +2,8 @@ package com.generation.reciclo.controller;
 //teste
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,9 +50,15 @@ public class TemaController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<TemaModel> put (@RequestBody TemaModel tema){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
-	}
+    public ResponseEntity<TemaModel> putTema(@Valid @RequestBody TemaModel tema) {
+
+        return repository.findById(tema.getId())
+                .map(resposta -> {
+                    return ResponseEntity.ok().body(repository.save(tema));
+                })
+                .orElse(ResponseEntity.notFound().build());
+
+    }
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
