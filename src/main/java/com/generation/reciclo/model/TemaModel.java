@@ -30,7 +30,7 @@ public class TemaModel {
 	@Size(max=500, message="Permitido de 10 até 500 caracteres")
 	private String titulo;
 	
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties ("tema")
 	private List<PostagemModel> postagem;
 
